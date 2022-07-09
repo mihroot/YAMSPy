@@ -106,9 +106,9 @@ def keyboard_controller(screen):
     CMDS = {
             'roll':     1500,
             'pitch':    1500,
-            'throttle': 900,
+            'throttle': 885,
             'yaw':      1500,
-            'aux1':     1000,
+            'aux1':     975,
             'aux2':     1000
             }
 
@@ -186,7 +186,7 @@ def keyboard_controller(screen):
 
                 elif char == ord('d') or char == ord('D'):
                     cursor_msg = 'Sending Disarm command...'
-                    CMDS['aux1'] = 1000
+                    CMDS['aux1'] = 1800
 
                 elif char == ord('r') or char == ord('R'):
                     screen.addstr(3, 0, 'Sending Reboot command...')
@@ -197,7 +197,7 @@ def keyboard_controller(screen):
 
                 elif char == ord('a') or char == ord('A'):
                     cursor_msg = 'Sending Arm command...'
-                    CMDS['aux1'] = 1800
+                    CMDS['aux1'] = 1000
 
                 #
                 # The code below is expecting the drone to have the
@@ -215,11 +215,11 @@ def keyboard_controller(screen):
                         CMDS['aux2'] = 1000
 
                 elif char == ord('w') or char == ord('W'):
-                    CMDS['throttle'] = CMDS['throttle'] + 10 if CMDS['throttle'] + 10 <= 2000 else CMDS['throttle']
+                    CMDS['throttle'] = CMDS['throttle'] + 50 if CMDS['throttle'] + 50 <= 2000 else CMDS['throttle']
                     cursor_msg = 'W Key - throttle(+):{}'.format(CMDS['throttle'])
 
                 elif char == ord('e') or char == ord('E'):
-                    CMDS['throttle'] = CMDS['throttle'] - 10 if CMDS['throttle'] - 10 >= 1000 else CMDS['throttle']
+                    CMDS['throttle'] = CMDS['throttle'] - 50 if CMDS['throttle'] - 50 >= 885 else CMDS['throttle']
                     cursor_msg = 'E Key - throttle(-):{}'.format(CMDS['throttle'])
 
                 elif char == curses.KEY_RIGHT:
